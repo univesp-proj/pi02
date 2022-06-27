@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu_home %}active{% endblock %}
+{% block content %}
+
+	<section>&nbsp;</section>
+		<!-- Start Midium Banner  -->
+		<section class="midium-banner section">
+			<div class="container">
+				<div class="row">
+					<!-- Single Banner  -->
+					<div class="col-lg-6 col-md-6 col-12">
+						<div class="single-banner">
+							<img src="{% static '/images/600x370.png' %}" alt="#">
+							<div class="content">
+								<!--<p>Man's Collectons</p>-->
+								<h3>Produtos</h3>
+								<div class="inner">Entre aqui e encontre celulares, móveis, eletrodoméstivos, computadores e outros objetos novos ou usados que seu vizinho quer desapegar.</div>
+								<a href="/produtos/">Consulte!</a>
+							</div>
+						</div>
+					</div>
+					<!-- /End Single Banner  -->
+					<!-- Single Banner  -->
+					<div class="col-lg-6 col-md-6 col-12">
+						<div class="single-banner">
+							<img src="{% static '/images/600x370.png' %}" alt="#">
+							<div class="content">
+								<!--<p>shoes women</p>-->
+								<h3>Prestadores de Serviço</h3>
+								<div class="inner">Precisando de ajuda? Encontre aqui um vizinho perito em obras, serviços domésticos, manutenção de eletrodomésticos entre outros profissionais.</div>
+								<a href="/servicos/" class="btn">Consulte!</a>
+							</div>
+						</div>
+					</div>
+					<!-- /End Single Banner  -->
+				</div>
+			</div>
+		</section>
+		<!-- End Midium Banner -->
+		<section>&nbsp;</section>
+	
+{% endblock %}

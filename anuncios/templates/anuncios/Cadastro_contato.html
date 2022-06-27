@@ -1,0 +1,91 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block menu_produtos %}active{% endblock %}
+{% block content %}
+{% load humanize %}
+
+	<div class="section">
+	    	<div class="container">
+                <!-- Lista de Produto -->
+                <h2>Cadastro de Contatos</h2>            
+				<div class="row">
+					
+
+
+
+
+						<a id="add-link" href="/contato_add/">
+							<div class="col-2 add-div">
+								<i class="fas fa-plus"></i> Adicionar contato
+							</div>
+						</a>
+						<div class="col-9 search-div">
+							<form method="GET" id="search-form">
+								<input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da tarefa para buscar..." value="{{ request.GET.search }}">
+								<i class="fas fa-search" id="search-btn"></i>
+							</form>
+						</div>
+						<div class="col-12 filter-div">
+							<span>Filtrar por:</span>
+							<select name="filter" id="filter" class="form-control">
+								<option value="">Escolha uma opção...</option>
+								<option value="done">Tarefas concluídas</option>
+								<option value="doing">Tarefas a fazer</option>
+							</select>
+						</div>
+
+						{% if messages %}
+						<ul class="messages">
+							{% for message in messages %}
+							<li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+
+						<ul class="task-list">
+							{% for contato in contatos%}
+							<li class="task-list">
+									<span><a href="/contato/{{contato.id}}">{{contato.tp_contato}}</a></span>
+									<span>{{contato.tx_contato}}</span>
+									<a href="/contato_delete/{{contato.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+									<a href="/contato_edit/{{contato.id}}"><span><i class="fas fa-edit"></i></span></a>
+									<a href="/produto_changestatus/{{produto.id}}"><i class="fas fa-check"></i></a>
+							</li>
+							{% endfor %}
+						</ul>
+
+
+
+
+				
+
+				</div>
+			
+			<!-- Paginação -->
+			<div class="container">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						{% if produtos.has_previous %}
+							<li class="page-item"><a class="page-link" href="?page={{ produtos.previous_page_number }}">&laquo;</a></li>
+						{% else %}
+							<li class="page-item" class="disabled"><span class="page-link">&laquo;</span></li>
+						{% endif %}
+						{% for i in produtos.paginator.page_range %}
+							{% if produtos.number == i %}
+							<li class="page-item" class="active"><span class="page-link" >{{ i }} <span class="sr-only">(current)</span></span></li>
+							{% else %}
+							<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+							{% endif %}
+						{% endfor %}
+						{% if produtos.has_next %}
+							<li class="page-item"><a class="page-link" href="?page={{ produtos.next_page_number }}">&raquo;</a></li>
+						{% else %}
+							<li class="page-item" class="disabled"><span class="page-link">&raquo;</span></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

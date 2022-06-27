@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu_servicos %}active{% endblock %}
+{% block content %}
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<!-- Image Column -->
+					<div class="col-sm-6">
+						<div class="portfolio-item">
+							<div class="portfolio-image">
+								<a href="#"><img src="{{servico.imagem.url}}" alt="Project Name"></a>
+							</div>
+						</div>
+					</div>
+					<!-- End Image Column -->
+					<!-- Project Info Column -->
+					<div class="portfolio-item-description col-sm-6">
+						<h3>{{servico.tx_titulo_servico}}</h3>                        
+                        <br />
+						<p><strong>Descrição</strong></p>
+						<p>
+							{{servico.dc_servico}}
+						</p>
+						<br>
+                        <ul class="no-list-style">
+							<li><b>Anunciante:</b> {{servico.usuario}}</li>
+                            <i class="fas fa-search-plus"></i>
+                            <a href="/anunciante_servicos/{{servico.usuario}}">Veja outros servicos deste anunciante</a>
+                            <li>&nbsp;</li>
+							<li><b>Contato(s):</b></li>
+                            {% for contato in contatos %}
+                                <li>
+                                    {% ifequal contato.tp_contato "Telefone" %}        
+                                        <i class="fas fa-phone fa"></i> {{contato.tx_contato}}
+                                    {% endifequal %}
+                                </li>
+                                <li>
+                                    {% ifequal contato.tp_contato "WhatsApp" %}        
+                                        <a href="#void" onclick="enviarMensagem({{contato.tx_contato}},'*[Negocia aí, vizinho!]*\n\nOlá, Tudo bem?\n\nVi seu anúncio e fiquei interessado no serviço: *{{servico.tx_titulo_servico}}*.\n\n*Link do anúncio:*\n{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}\n\nVamos negociar?')">
+                                            <i class="fab fa-whatsapp-square" style="font-size: 1.5em;"></i>
+                                          {{contato.tx_contato}}</a>
+                                    {% endifequal %}
+                                </li>
+                                <li>
+                                    {% ifequal contato.tp_contato "Telegram" %}        
+                                        <i class="fab fa-telegram fa"></i> {{contato.tx_contato}}
+                                    {% endifequal %}
+                                </li>
+                                <li>
+                                    {% ifequal contato.tp_contato "E-Mail" %}        
+                                        <i class="fas fa-envelope fa"></i> 
+                                        <a href="mailto:{{contato.tx_contato}}">{{contato.tx_contato}}</a>
+                                    {% endifequal %}
+                                </li>
+                                <li>
+                                    {% ifequal contato.tp_contato "Instagram" %}        
+                                        <i class="fab fa-instagram fa"></i> {{contato.tx_contato}}
+                                    {% endifequal %}
+                                </li>
+                                <li>
+                                    {% ifequal contato.tp_contato "Facebook" %}        
+                                        <i class="fab fa-facebook fa"></i> {{contato.tx_contato}}
+                                    {% endifequal %}
+                                </li>
+                                <li>
+                                    {% ifequal contato.tp_contato "Twitter" %}        
+                                        <i class="fab fa-twitter fa"></i> {{contato.tx_contato}}
+                                    {% endifequal %}
+                                </li>
+                           {% endfor %}
+						</ul>
+					</div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

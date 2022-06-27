@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu_produtos %}active{% endblock %}
+{% block content %}
+{% load humanize %}
+
+	<div class="section">
+		<div class="container">
+			<!-- Lista de Produtos -->
+			<h2>Resultado da Pesquisa</h2>            
+			<div class="row">
+				{% for anuncio in anuncios %}
+				<div class="col-sm-4">
+					<!-- Product -->
+				
+					<div class="shop-item">
+						<!-- Product Image -->
+						<div class="image">
+							{% if anuncio.nm_produto %}
+								<a href="/detalhes_produto/{{anuncio.id}}"><img src="{{anuncio.imagem.url}}" alt="Item Name"></a>
+							{% else %}
+								<a href="/detalhes_servico/{{anuncio.id}}"><img src="{{anuncio.imagem.url}}" alt="Item Name"></a>
+							{% endif %}
+						</div>
+						<!-- Product Title -->
+						<div class="title">
+							
+							{% if anuncio.nm_produto %}
+								<h3><a href="/detalhes_produto/{{anuncio.id}}">{{anuncio.nm_produto}}</a></h3>
+							{% else %}
+								<h3><a href="/detalhes_servico/{{anuncio.id}}">{{anuncio.tx_titulo_servico}}</a></h3>
+							{% endif %}
+						</div>
+
+						<!-- Add to Cart Button -->
+						<div class="actions">
+							{% if anuncio.nm_produto %}
+								<a href="/detalhes_produto/{{anuncio.id}}" class="btn"><i class="icon-shopping-cart icon-white"></i> Visualizar</a>
+							{% else %}
+								<a href="/detalhes_servico/{{anuncio.id}}" class="btn"><i class="icon-shopping-cart icon-white"></i> Visualizar</a>
+							{% endif %}
+						</div>
+					</div>
+					<!-- End Product -->
+				</div>
+				{% endfor %}
+				<!--
+			<!-- Paginação -->
+			<div class="container">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						{% if anuncios.has_previous %}
+							<li class="page-item"><a class="page-link" href="?search={{ request.GET.search }}&page={{ anuncios.previous_page_number }}">&laquo;</a></li>
+						{% else %}
+							<li class="page-item" class="disabled"><span class="page-link">&laquo;</span></li>
+						{% endif %}
+						{% for i in anuncios.paginator.page_range %}
+							{% if anuncios.number == i %}
+							<li class="page-item" class="active"><span class="page-link" >{{ i }} <span class="sr-only">(current)</span></span></li>
+							{% else %}
+							<li class="page-item"><a class="page-link" href="?search={{ request.GET.search }}&page={{ i }}">{{ i }}</a></li>
+							{% endif %}
+						{% endfor %}
+						{% if anuncios.has_next %}
+							<li class="page-item"><a class="page-link" href="?search={{ request.GET.search }}&page={{ anuncios.next_page_number }}">&raquo;</a></li>
+						{% else %}
+							<li class="page-item" class="disabled"><span class="page-link">&raquo;</span></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

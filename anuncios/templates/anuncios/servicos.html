@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menu_servicos %}active{% endblock %}
+{% block content %}
+
+<section class="shop-services section home">
+	<div class="container">
+		<div class="section-title">
+			<h2>Serviços</h2>
+		</div>
+		<div class="row">
+			{% for categoria in categorias %}
+			<div class="col-lg-3 col-md-6 col-12" style="padding-bottom: 25px;">
+				<!-- Start Single Service -->
+				<div class="single-service">
+					<a href="/lista_servicos/{{categoria.id}}">
+						<i class="{{categoria.nm_icone}}"></i>
+						<h4>{{categoria.nm_categoria}}</h4>
+					<p>Orders over $100</p>
+					</a>
+				</div>
+				<!-- End Single Service -->
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}
