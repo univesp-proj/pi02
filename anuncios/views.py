@@ -155,10 +155,9 @@ def faleConosco(request):
 
             try:
                 # send_mail ( subject , message )
-                assunto = 'Teste (Fale conosco): ' + assunto
+                assunto = 'Fale conosco: ' + assunto
                 mensagem = 'Nome:' + nome + '\nEmail:' + seu_email + '\nMensagem: ' + mensagem
-                send_mail(assunto, mensagem, 'mogiunivesp5@hotmail.com',
-                          ['2005436@aluno.univesp.br', '2011457@aluno.univesp.br'])
+                send_mail(assunto, mensagem, 'univesp.proj@gmail.com')
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return Sucesso_envio_email(request)

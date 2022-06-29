@@ -32,8 +32,9 @@
                             {% if user.is_authenticated %}
 							    <li><b>Contato(s):</b></li>
 							{% else %}
-                                <li><b>Efetue o login para entrar em contato com o anunciante.</b></li>
+                                <li><b><a href="{% url 'login'%}?next={{request.path}}">Efetue o login para entrar em contato com o anunciante.</a></b></li>
 							{% endif %} 
+
                             {% for contato in contatos %}
                                 <li>
                                     {% ifequal contato.tp_contato "Telefone" %}        
@@ -42,7 +43,7 @@
                                 </li>
                                 <li>
                                     {% ifequal contato.tp_contato "WhatsApp" %}        
-                                        <a href="#void" onclick="enviarMensagem({{contato.tx_contato}},'*[Negocia aí, vizinho!]*\n\nOlá, Tudo bem?\n\nVi seu anúncio e fiquei interessado no serviço: *{{servico.tx_titulo_servico}}*.\n\n*Link do anúncio:*\n{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}\n\nVamos negociar?')">
+                                        <a href="#void" onclick="enviarMensagem({{contato.tx_contato}},'*[KNN Shop]*\n\nOlá, Tudo bem?\n\nVi seu anúncio e fiquei interessado no serviço: *{{servico.tx_titulo_servico}}*.\n\n*Link do anúncio:*\n{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}\n\nVamos negociar?')">
                                             <i class="fab fa-whatsapp-square" style="font-size: 1.5em;"></i>
                                           {{contato.tx_contato}}</a>
                                     {% endifequal %}

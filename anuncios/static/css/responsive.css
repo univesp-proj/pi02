@@ -90,8 +90,8 @@ Version:1.0
 }
 .header.shop .search-bar input {
 	padding: 0 52px 0 20px;
-	width: 264px;
-	height: auto;
+	width: 382px;
+	height: 39px;
 	font-size: 13px;
 }
 .header.shop .all-category {
@@ -494,7 +494,7 @@ Version:1.0
 	margin-bottom: 30px;
 	padding: 0px 20px;
 }
-.section-title h2 {
+.section-title h2, h3, h4 {
 	font-size: 22px;
 	margin-bottom: 20px;
 }

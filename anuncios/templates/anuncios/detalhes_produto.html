@@ -48,7 +48,7 @@
                                 <li>
                                     {% ifequal contato.tp_contato "WhatsApp" %}        
                                         <i class="fab fa-whatsapp-square" style="font-size: 1.5em;"></i>
-                                        <a href="#void" onclick="enviarMensagem({{contato.tx_contato}},'*[Negocia aí, vizinho!]*\n\nOlá, tudo bem?\n\nVi seu anúncio e fiquei interessado no produto: *{{produto.dc_produto}}*.\n\n*Link do anúncio:*\n{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}\n\nVamos negociar?')">
+                                        <a href="#void" onclick="enviarMensagem({{contato.tx_contato}},'*[KNN Shop]*\n\nOlá, tudo bem?\n\nVi seu anúncio e fiquei interessado no produto: *{{produto.dc_produto}}*.\n\n*Link do anúncio:*\n{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}\n\nVamos negociar?')">
                                             
                                           {{contato.tx_contato}}</a>
                                     {% endifequal %}

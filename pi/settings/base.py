@@ -145,12 +145,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #MEDIA_URL = '/anuncios/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'anuncios')
-DEFAULT_FROM_EMAIL = 'univespmogi5@hotmail.com'
+DEFAULT_FROM_EMAIL = 'univesp.proj@gmail.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # trocar console ->smtp
 EMAIL_HOST = 'smtp.gmail.com'  # new
 EMAIL_HOST_USER = 'univesp.proj@gmail.com'  # new
-EMAIL_HOST_PASSWORD = 'lowwscohnzyodfux'  # new
+EMAIL_HOST_PASSWORD = 'ieqpwtfpnecipaft'  # new
 EMAIL_PORT = 587  # new
 EMAIL_USE_TLS = True  # new
 

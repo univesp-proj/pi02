@@ -3,7 +3,7 @@
 {% block menu_servicos %}active{% endblock %}
 {% block content %}
 
-<section class="shop-services section home">
+<section class="shop-blog section home">
 	<div class="container">
 		<div class="section-title">
 			<h2>Serviços</h2>
@@ -12,12 +12,15 @@
 			{% for categoria in categorias %}
 			<div class="col-lg-3 col-md-6 col-12" style="padding-bottom: 50px;">
 				<!-- Start Single Service -->
-				<div class="single-service">
-					<a href="/lista_servicos/{{categoria.id}}">
-						<i class="{{categoria.nm_icone}}"></i>
-						<h4>{{categoria.nm_categoria}}</h4>
-						<p>- - - - - - - </p>
-					</a>
+				<div class="shop-single-blog">
+					<div class="content">
+						<a href="/lista_servicos/{{categoria.id}}" class="title">
+							<i class="{{categoria.nm_icone}}"></i>
+							<h4>{{categoria.nm_categoria}}</h4>
+							<p>- - - - - - - </p>
+						</a>
+				
+					</div>
 				</div>
 				<!-- End Single Service -->
 			</div>
