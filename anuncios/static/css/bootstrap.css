@@ -3696,7 +3696,7 @@ tbody.collapse.show {
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #ddd
+    /* border-bottom: 1px solid #ddd  */
 }
 
 .nav-tabs .nav-item {

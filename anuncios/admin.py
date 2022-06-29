@@ -79,6 +79,6 @@ class ServicoAdmin(admin.ModelAdmin):
 
 
 #admin.site.register(Condominio, CondominioAdmin)
-#admin.site.register(Categoria)
+admin.site.register(Categoria)
 admin.site.register(Produto, ProdutoAdmin)
 admin.site.register(Servico, ServicoAdmin)

@@ -12,7 +12,8 @@
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Blog  -->
 						<div class="shop-single-blog">
-							<img src="{{produto.imagem.url}}" alt="#">
+							<a href="/detalhes_produto/{{produto.id}}">
+							<img src="{{produto.imagem.url}}" alt="#"></a>
 							<div class="content">
 								<p class="date">R$ {{produto.vl_produto|floatformat:2}}</p>
 								<p><a href="/detalhes_produto/{{produto.id}}" class="title">{{produto.nm_produto}}</a></p>
@@ -26,11 +27,10 @@
 			</div>
 		</section>
 
-					<!--
 			<!-- Paginação -->
-			<div class="container">
+			<div class="container" style="padding: 25px 0">
 				<nav aria-label="Page navigation example">
-					<ul class="pagination">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
 						{% if produtos.has_previous %}
 							<li class="page-item"><a class="page-link" href="?page={{ produtos.previous_page_number }}">&laquo;</a></li>
 						{% else %}
