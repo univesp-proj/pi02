@@ -155,11 +155,10 @@ def faleConosco(request):
 
             try:
                 # send_mail ( subject , message )
-                assunto = 'Fale conosco: ' + assunto
-                mensagem = 'Nome:' + nome + '\nEmail:' + seu_email + '\nMensagem: ' + mensagem
-                send_mail(assunto, mensagem, 'univesp.proj@gmail.com')
+                assunto = '[KNN Shop] Fale conosco: ' + assunto
+                mensagem = 'Nome: ' + nome + '\n\nEmail: ' + seu_email + '\n\nMensagem: \n' + mensagem
                 send_mail(assunto, mensagem, 'univesp.proj@gmail.com',
-                          ['alexssonline@gmail.com', '2011457@aluno.univesp.br'])
+                          ['univesp.proj@gmail.com', '2011457@aluno.univesp.br'],)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return Sucesso_envio_email(request)
