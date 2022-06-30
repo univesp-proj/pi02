@@ -159,7 +159,7 @@ def faleConosco(request):
                 mensagem = 'Nome:' + nome + '\nEmail:' + seu_email + '\nMensagem: ' + mensagem
                 send_mail(assunto, mensagem, 'univesp.proj@gmail.com')
                 send_mail(assunto, mensagem, 'univesp.proj@gmail.com',
-                          ['alexssonline@hotmail.com', '2011457@aluno.univesp.br'])
+                          ['alexssonline@gmail.com', '2011457@aluno.univesp.br'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return Sucesso_envio_email(request)
